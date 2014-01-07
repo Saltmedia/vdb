@@ -1,0 +1,1 @@
+This project is a Joomla 3 component to manage volunteer opportunities.
