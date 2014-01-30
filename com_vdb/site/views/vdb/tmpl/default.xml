@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Sponsor Wall">
+        <message>
+			<![CDATA[Sponsor Wall]]>
+        </message>
+    </layout>
+    <state>
+        <name>Sponsor Wall</name>
+        <description>Sponsor Wall</description>
+        <url>
+
+        </url>
+        <params>
+
+        </params>
+        <advanced>
+
+        </advanced>
+    </state>
+</metadata>
