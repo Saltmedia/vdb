@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS `#__sponsorwall_config`;
-DROP TABLE IF EXISTS `#__sponsorwall_category`;
-DROP TABLE IF EXISTS `#__sponsorwall_counter`;
-DROP TABLE IF EXISTS `#__sponsorwall`;
+DROP TABLE IF EXISTS `#__vdb_opportunities`;
+DROP TABLE IF EXISTS `#__vdb_categories`;
+DROP TABLE IF EXISTS `#__vdb_locations`;
+DROP TABLE IF EXISTS `#__vdb_admins`;
+DROP TABLE IF EXISTS `#__vdb_organizations`;
