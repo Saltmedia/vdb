@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class sponsorwallModelsponsorwalloperation extends JModelLegacy
+class VDBModelVDBoperation extends JModelLegacy
 {
 
     /**

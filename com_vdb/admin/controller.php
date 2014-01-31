@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 
-class SponsorwallController extends JControllerLegacy
+class VDBController extends JControllerLegacy
 {
 
     /**
@@ -30,7 +30,7 @@ class SponsorwallController extends JControllerLegacy
     {
 
 
-        JRequest::setVar('view', 'sponsorwalloperation');
+        JRequest::setVar('view', 'vdboperation');
         JRequest::setVar('layout', 'form');
         JRequest::setVar('hidemainmenu', 1);
 
@@ -39,19 +39,19 @@ class SponsorwallController extends JControllerLegacy
 
     function save()
     {
-        $model = $this->getModel('sponsorwalloperation');
+        $model = $this->getModel('vdboperation');
 
         if($model->store())
         {
-            $msg = JText::_('Wall Saved!');
+            $msg = JText::_('VDB Object Saved!');
         }
         else
         {
-            $msg = JText::_('Error Saving Greeting');
+            $msg = JText::_('Error Saving VDB Object');
         }
 
         // Check the table in so it can be edited.... we are done with it anyway
-        $link = 'index.php?option=com_sponsorwall';
+        $link = 'index.php?option=com_vdb';
         $this->setRedirect($link, $msg);
     }
 
@@ -61,17 +61,17 @@ class SponsorwallController extends JControllerLegacy
      */
     function remove()
     {
-        $model = $this->getModel('sponsorwalloperation');
+        $model = $this->getModel('vdboperation');
         if(!$model->delete())
         {
-            $msg = JText::_('Error: One or More Wall Could not be Deleted');
+            $msg = JText::_('Error: One or More VDB Object Could not be Deleted');
         }
         else
         {
-            $msg = JText::_('Wall(s) Deleted');
+            $msg = JText::_('VDB Object(s) Deleted');
         }
 
-        $this->setRedirect('index.php?option=com_sponsorwall', $msg);
+        $this->setRedirect('index.php?option=com_vdb', $msg);
     }
 
     /**
@@ -91,13 +91,13 @@ class SponsorwallController extends JControllerLegacy
             JError::raiseError(500, JText::_('Select an item to publish'));
         }
 
-        $model = $this->getModel('sponsorwalloperation');
+        $model = $this->getModel('vdboperation');
         if(!$model->publish($cid, 1))
         {
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_sponsorwall');
+        $this->setRedirect('index.php?option=com_vdb');
     }
 
     function unpublish()
@@ -113,13 +113,13 @@ class SponsorwallController extends JControllerLegacy
             JError::raiseError(500, JText::_('Select an item to unpublish'));
         }
 
-        $model = $this->getModel('sponsorwalloperation');
+        $model = $this->getModel('vdboperation');
         if(!$model->publish($cid, 0))
         {
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_sponsorwall');
+        $this->setRedirect('index.php?option=com_vdb');
     }
 
     function orderup()
@@ -135,7 +135,7 @@ class SponsorwallController extends JControllerLegacy
             $catid = $filter_category_id;
             $cid = JRequest::getVar('cid');
             $id = $cid[0];
-            $model = $this->getModel('sponsorwalloperation');
+            $model = $this->getModel('vdboperation');
             $model->move('up', $id, $catid);
             $msg = 'Ordering Changed';
         }
@@ -156,12 +156,12 @@ class SponsorwallController extends JControllerLegacy
             $catid = $filter_category_id;
             $cid = JRequest::getVar('cid');
             $id = $cid[0];
-            $model = $this->getModel('sponsorwalloperation');
+            $model = $this->getModel('vdboperation');
             $model->move('down', $id, $catid);
             $msg = 'Ordering Changed';
         }
 
-        $this->setRedirect('index.php?option=com_sponsorwall', $msg);
+        $this->setRedirect('index.php?option=com_vdb', $msg);
     }
 
     function saveorder()
@@ -183,13 +183,13 @@ class SponsorwallController extends JControllerLegacy
             JArrayHelper::toInteger($cid);
             JArrayHelper::toInteger($order);
 
-            $model = $this->getModel('sponsorwalloperation');
+            $model = $this->getModel('vdboperation');
             $model->saveorder($cid, $order);
 
             $msg = 'New ordering saved';
         }
 
-        $this->setRedirect('index.php?option=com_sponsorwall', $msg);
+        $this->setRedirect('index.php?option=com_vdb', $msg);
     }
 
 }

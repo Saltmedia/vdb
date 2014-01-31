@@ -32,7 +32,7 @@ if($controller = JRequest::getWord('controller'))
 }
 
 // Create the controller
-$classname = 'SponsorwallController' . $controller;
+$classname = 'VDBController' . $controller;
 $controller = new $classname( );
 
 // Perform the Request task

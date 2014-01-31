@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class sponsorwallModelcategories extends JModelLegacy
+class VDBModelcategories extends JModelLegacy
 {
 
     var $_data;
@@ -32,7 +32,7 @@ class sponsorwallModelcategories extends JModelLegacy
         $where = $this->_buildContentWhere();
         //To put order NIRAJ
 
-        $query = ' SELECT * FROM #__sponsorwall_category as c'
+        $query = ' SELECT * FROM #__vdb_categories as c'
                 . $where
                 . $orderby
         ;
