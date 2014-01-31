@@ -357,4 +357,3 @@ INSERT INTO `#__vdb_skills` (`id`, `skillcatid`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `#__vdb_locations`
