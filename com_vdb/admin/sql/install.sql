@@ -15,8 +15,6 @@ CREATE TABLE IF NOT EXISTS `#__vdb_opportunities` (
   `email` varchar(100) NOT NULL,
   `url` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `checked_out` int(11) NOT NULL,
-  `ordering` int(20) NOT NULL,
   `published` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
@@ -139,7 +137,6 @@ CREATE TABLE IF NOT EXISTS `#__vdb_organization` (
   `postalcode` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `postalcode` varchar(100) NOT NULL,
   `desc` text NOT NULL,
   `image` varchar(100) NOT NULL,
   `published` int(2) NOT NULL,

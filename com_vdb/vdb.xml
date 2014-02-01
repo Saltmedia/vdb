@@ -36,7 +36,7 @@
         <filename>models/index.html</filename>
         <filename>scripts/jquery.easing.1.3.js</filename>
         <filename>scripts/jquery-1.4.min.js</filename>
-        <folder>images</folder>
+
         <folder>views</folder>
 
 
@@ -60,13 +60,13 @@
             <filename>vdb.php</filename>
             <filename>index.html</filename>
             <filename>controller.php</filename>
-            <filename>controllers/categories.php</filename>
-            <filename>controllers/category.php</filename>
+            <filename>controllers/cause_categories.php</filename>
+            <filename>controllers/cause_category.php</filename>
             <filename>controllers/configuration.php</filename>
             <filename>controllers/vdb.php</filename>
             <filename>controllers/index.html</filename>
-            <filename>models/categories.php</filename>
-            <filename>models/category.php</filename>
+            <filename>models/cause_categories.php</filename>
+            <filename>models/cause_category.php</filename>
             <filename>models/configuration.php</filename>
             <filename>models/vdb.php</filename>
             <filename>models/vdboperation.php</filename>
@@ -75,7 +75,7 @@
             <filename>images/vdb_logo.png</filename>
             <filename>images/vdb.png</filename>
 
-            <filename>tables/category.php</filename>
+            <filename>tables/cause_category.php</filename>
             <filename>tables/configuration.php</filename>
             <filename>tables/vdboperation.php</filename>
             <filename>tables/index.html</filename>
@@ -89,15 +89,15 @@
             <filename>views/about_vdb/tmpl/index.html</filename>
 
 
-            <filename>views/categories/index.html</filename>
-            <filename>views/categories/view.html.php</filename>
-            <filename>views/categories/tmpl/default.php</filename>
-            <filename>views/categories/tmpl/index.html</filename>
+            <filename>views/cause_categories/index.html</filename>
+            <filename>views/cause_categories/view.html.php</filename>
+            <filename>views/cause_categories/tmpl/default.php</filename>
+            <filename>views/cause_categories/tmpl/index.html</filename>
 
-            <filename>views/category/view.html.php</filename>
-            <filename>views/category/tmpl/form.php</filename>
-            <filename>views/category/tmpl/index.html</filename>
-            <filename>views/category/index.html</filename>
+            <filename>views/cause_category/view.html.php</filename>
+            <filename>views/cause_category/tmpl/form.php</filename>
+            <filename>views/cause_category/tmpl/index.html</filename>
+            <filename>views/cause_category/index.html</filename>
 
             <filename>views/configuration/view.html.php</filename>
             <filename>views/configuration/tmpl/form.php</filename>

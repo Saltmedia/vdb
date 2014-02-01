@@ -43,11 +43,11 @@ class VDBController extends JControllerLegacy
 
         if($model->store())
         {
-            $msg = JText::_('VDB Object Saved!');
+            $msg = JText::_('Opportunity Saved!');
         }
         else
         {
-            $msg = JText::_('Error Saving VDB Object');
+            $msg = JText::_('Error Saving Opportunity');
         }
 
         // Check the table in so it can be edited.... we are done with it anyway
@@ -64,11 +64,11 @@ class VDBController extends JControllerLegacy
         $model = $this->getModel('vdboperation');
         if(!$model->delete())
         {
-            $msg = JText::_('Error: One or More VDB Object Could not be Deleted');
+            $msg = JText::_('Error: One or More Opportunities Could not be Deleted');
         }
         else
         {
-            $msg = JText::_('VDB Object(s) Deleted');
+            $msg = JText::_('Opportunity(s) Deleted');
         }
 
         $this->setRedirect('index.php?option=com_vdb', $msg);
@@ -122,75 +122,7 @@ class VDBController extends JControllerLegacy
         $this->setRedirect('index.php?option=com_vdb');
     }
 
-    function orderup()
-    {
-        $filter_category_id = JRequest::getVar('filter_category_id');
 
-        if($filter_category_id == "")
-        {
-            $msg = 'Select Category To Change Ordering';
-        }
-        else
-        {
-            $catid = $filter_category_id;
-            $cid = JRequest::getVar('cid');
-            $id = $cid[0];
-            $model = $this->getModel('vdboperation');
-            $model->move('up', $id, $catid);
-            $msg = 'Ordering Changed';
-        }
-
-        $this->setRedirect('index.php?option=com_sponsorwall', $msg);
-    }
-
-    function orderdown()
-    {
-        $filter_category_id = JRequest::getVar('filter_category_id');
-
-        if($filter_category_id == "")
-        {
-            $msg = 'Select Category To Change Ordering';
-        }
-        else
-        {
-            $catid = $filter_category_id;
-            $cid = JRequest::getVar('cid');
-            $id = $cid[0];
-            $model = $this->getModel('vdboperation');
-            $model->move('down', $id, $catid);
-            $msg = 'Ordering Changed';
-        }
-
-        $this->setRedirect('index.php?option=com_vdb', $msg);
-    }
-
-    function saveorder()
-    {
-        // Check for request forgeries
-        // JRequest::checkToken() or jexit('Invalid Token');
-        $filter_category_id = JRequest::getVar('filter_category_id');
-
-        if($filter_category_id == "")
-        {
-            $msg = 'Select Category To Change Ordering';
-        }
-        else
-        {
-            $cid = JRequest::getVar('cid', array(), 'post', 'array');
-
-            $order = JRequest::getVar('order', array(), 'post', 'array');
-
-            JArrayHelper::toInteger($cid);
-            JArrayHelper::toInteger($order);
-
-            $model = $this->getModel('vdboperation');
-            $model->saveorder($cid, $order);
-
-            $msg = 'New ordering saved';
-        }
-
-        $this->setRedirect('index.php?option=com_vdb', $msg);
-    }
 
 }
 

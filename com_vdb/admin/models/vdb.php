@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class sponsorwallModelsponsorwall extends JModelLegacy
+class vdbModelvdb extends JModelLegacy
 {
 
     var $_data = null;
@@ -43,7 +43,7 @@ class sponsorwallModelsponsorwall extends JModelLegacy
         $where = $this->_buildContentWhere();
 
         $query = ' SELECT * '
-                . ' FROM #__sponsorwall as a '
+                . ' FROM #__vdb_opportunities as a '
                 . $where
                 . $orderby
         ;
@@ -57,17 +57,17 @@ class sponsorwallModelsponsorwall extends JModelLegacy
         global $mainframe, $app, $option, $mainframe;
         $db = & JFactory::getDBO();
         $filter_state = $app->getUserStateFromRequest($option . 'filter_state', 'filter_state', '', 'word');
-        $filter_catid = $app->getUserStateFromRequest($option . 'filter_category_id', 'filter_category_id', 0, 'int');
-        $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'a.ordering', 'cmd');
+        $filter_causeid = $app->getUserStateFromRequest($option . 'filter_cause_category_id', 'filter_cause_category_id', 0, 'int');
+        $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'title', 'cmd');
         $filter_order_Dir = $app->getUserStateFromRequest($option . 'filter_order_Dir', 'filter_order_Dir', '', 'word');
         $search = $app->getUserStateFromRequest($option . 'search', 'search', '', 'string');
         $search = JString::strtolower($search);
 
         $where = array();
 
-        if($filter_catid > 0)
+        if($filter_causeid > 0)
         {
-            $where[] = 'a.catid = ' . (int) $filter_catid;
+            $where[] = 'a.causeid = ' . (int) $filter_causeid;
         }
         if($search)
         {
@@ -95,17 +95,11 @@ class sponsorwallModelsponsorwall extends JModelLegacy
     {
         global $mainframe, $app, $option, $mainframe;
 
-        $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'a.ordering', 'cmd');
+        $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'title', 'cmd');
         $filter_order_Dir = $app->getUserStateFromRequest($option . 'filter_order_Dir', 'filter_order_Dir', '', 'word');
 
-        if($filter_order == 'a.ordering')
-        {
-            $orderby = ' ORDER BY catid, a.ordering ' . $filter_order_Dir;
-        }
-        else
-        {
-            $orderby = ' ORDER BY ' . $filter_order . ' ' . $filter_order_Dir . ' , catid, a.ordering ';
-        }
+            $orderby = ' ORDER BY ' . $filter_order . ' ' . $filter_order_Dir . ' , causeid ';
+
 
 
         return $orderby;
@@ -157,10 +151,10 @@ class sponsorwallModelsponsorwall extends JModelLegacy
         return $this->_pagination;
     }
 
-    function getcategory()
+    function getcause_category()
     {
         $db = JFactory::getDbo();
-        $query = 'SELECT * FROM #__sponsorwall_category';
+        $query = 'SELECT * FROM #__vdb_cause_categories';
         $max = $this->_getList($query);
 
         return $max;
