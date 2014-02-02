@@ -130,6 +130,7 @@ DROP TABLE IF EXISTS `#__vdb_organizations`;
 CREATE TABLE IF NOT EXISTS `#__vdb_organization` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `causeid` int(10) NOT NULL,
+  `skillids` varchar(100) NOT NULL,
   `locationid` int(10) NOT NULL,
   `name` varchar(300) NOT NULL,
   `address` varchar(100) NOT NULL,

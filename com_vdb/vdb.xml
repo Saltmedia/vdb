@@ -56,6 +56,8 @@
             <menu img="components/com_vdb/images/skill_categories.png" link="option=com_vdb&amp;controller=skill_categories">COM_VDB_SKILL_CATEGORIES</menu>
 			
             <menu img="components/com_vdb/images/locations.png" link="option=com_vdb&amp;controller=locations">COM_VDB_LOCATIONS</menu>
+			<menu img="components/com_vdb/images/organizations.png" link="option=com_vdb&amp;controller=organizations">COM_VDB_ORGANIZATIONS</menu>
+			
 			<menu img="components/com_vdb/images/vdb.png" link="option=com_vdb&amp;view=about_vdb">COM_VDB_ABOUT</menu>
 
         </submenu>

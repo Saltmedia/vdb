@@ -19,6 +19,7 @@ abstract class vdbHelper
         JSubMenuHelper::addEntry(JText::_('Skills'), 'index.php?option=com_vdb&controller=skills',$active=='Skills' ? true : false);
         JSubMenuHelper::addEntry(JText::_('Skill Categories'), 'index.php?option=com_vdb&controller=skill_categories',$active=='Skill Categories' ? true : false);
 		JSubMenuHelper::addEntry(JText::_('Locations'), 'index.php?option=com_vdb&controller=locations',$active=='Locations' ? true : false);
+		JSubMenuHelper::addEntry(JText::_('Organizations'), 'index.php?option=com_vdb&controller=organizations',$active=='Organizations' ? true : false);
         JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb',$active=='About' ? true : false);
 
                 // set some global property
