@@ -35,6 +35,7 @@ class vdbViewcause_categories extends JViewLegacy
         JToolBarHelper::addNew();
 
         JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
+		JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes');
         JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories', true);
         JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
         JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');

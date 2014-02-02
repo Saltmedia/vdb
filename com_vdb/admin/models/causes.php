@@ -32,7 +32,7 @@ class VDBModelcauses extends JModelLegacy
         $where = $this->_buildContentWhere();
         //To put order NIRAJ
 
-        $query = ' SELECT * FROM #__vdb_causes as c INNER JOIN #__vdb_cause_categories as b ON c.causecatid=b.id'
+        $query = ' SELECT a.id, a.name, b.name as cause_category FROM #__vdb_causes as a INNER JOIN #__vdb_cause_categories as b ON a.causecatid=b.id '
                 . $where
                 . $orderby
         ;
@@ -57,7 +57,7 @@ class VDBModelcauses extends JModelLegacy
           } */
         if($search_cat)
         {
-            $where[] = 'LOWER(c.name) LIKE ' . $db->Quote('%' . $search_cat . '%', false);
+            $where[] = 'LOWER(a.name) LIKE ' . $db->Quote('%' . $search_cat . '%', false);
         }
 
 
@@ -73,7 +73,7 @@ class VDBModelcauses extends JModelLegacy
         $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'name', 'cmd');
         $filter_order_Dir_cat = $app->getUserStateFromRequest($option . 'filter_order_Dir_cat', 'filter_order_Dir_cat', '', 'word');
 
-        $orderby = ' ORDER BY c.name ' . $filter_order_Dir_cat;
+        $orderby = ' ORDER BY a.name ' . $filter_order_Dir_cat;
 
 
 

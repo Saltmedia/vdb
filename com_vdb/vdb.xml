@@ -60,60 +60,11 @@
             <filename>vdb.php</filename>
             <filename>index.html</filename>
             <filename>controller.php</filename>
-            <filename>controllers/cause_categories.php</filename>
-            <filename>controllers/cause_category.php</filename>
-            <filename>controllers/configuration.php</filename>
-            <filename>controllers/vdb.php</filename>
-            <filename>controllers/index.html</filename>
-            <filename>models/cause_categories.php</filename>
-            <filename>models/cause_category.php</filename>
-            <filename>models/configuration.php</filename>
-            <filename>models/vdb.php</filename>
-            <filename>models/vdboperation.php</filename>
-            <filename>models/index.html</filename>
-
-            <filename>images/vdb_logo.png</filename>
-            <filename>images/vdb.png</filename>
-
-            <filename>tables/cause_category.php</filename>
-            <filename>tables/configuration.php</filename>
-            <filename>tables/vdboperation.php</filename>
-            <filename>tables/index.html</filename>
-
-
-            <filename>views/index.html</filename>
-
-            <filename>views/about_vdb/index.html</filename>
-            <filename>views/about_vdb/view.html.php</filename>
-            <filename>views/about_vdb/tmpl/default.php</filename>
-            <filename>views/about_vdb/tmpl/index.html</filename>
-
-
-            <filename>views/cause_categories/index.html</filename>
-            <filename>views/cause_categories/view.html.php</filename>
-            <filename>views/cause_categories/tmpl/default.php</filename>
-            <filename>views/cause_categories/tmpl/index.html</filename>
-
-            <filename>views/cause_category/view.html.php</filename>
-            <filename>views/cause_category/tmpl/form.php</filename>
-            <filename>views/cause_category/tmpl/index.html</filename>
-            <filename>views/cause_category/index.html</filename>
-
-            <filename>views/configuration/view.html.php</filename>
-            <filename>views/configuration/tmpl/form.php</filename>
-            <filename>views/configuration/tmpl/index.html</filename>
-            <filename>views/configuration/index.html</filename>
-
-            <filename>views/vdb/view.html.php</filename>
-            <filename>views/vdb/tmpl/default.php</filename>
-            <filename>views/vdb/tmpl/index.html</filename>
-            <filename>views/vdb/index.html</filename>
-
-            <filename>views/vdboperation/view.html.php</filename>
-            <filename>views/vdboperation/tmpl/form.php</filename>
-            <filename>views/vdboperation/tmpl/index.html</filename>
-            <filename>views/vdboperation/index.html</filename>
-
+            <folder>controllers</folder>
+			<folder>models</folder>
+			<folder>images</folder>
+			<folder>views</folder>
+			<folder>tables</folder>
             <filename>sql/install.sql</filename>
             <filename>sql/uninstall.sql</filename>
             <folder>language</folder>

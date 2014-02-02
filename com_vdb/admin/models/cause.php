@@ -69,8 +69,8 @@ class vdbModelcause extends JModelLegacy
         {
             $this->_data = new stdClass();
             $this->_data->id = 0;
+            $this->_data->causecatid = null;
             $this->_data->name = null;
-            $this->_data->image = null;
         }
         return $this->_data;
     }
@@ -82,13 +82,6 @@ class vdbModelcause extends JModelLegacy
         $id = $data['id'];
 
 
-        if($_FILES['image']['tmp_name'] != "")
-        {
-            $img_name = time() . '_' . $_FILES['image']['name'];
-            $newimage = JPATH_COMPONENT_SITE . DS . 'images/category_images' . DS . $img_name;
-            $result = @move_uploaded_file($_FILES['image']['tmp_name'],$newimage);
-            $data['image'] = $img_name;
-        }
         // Bind the form fields to the hello table
         if(!$row->bind($data))
         {

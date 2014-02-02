@@ -43,12 +43,12 @@ JHtml::_('formbehavior.chosen', 'select');
                 </th>
 
                 <th>
-                    <?php echo JText::_('Category Name'); ?>
+                    <?php echo JText::_('Name'); ?>
                 </th>
 
 
                 <th>
-                    <?php echo JText::_('Category Image'); ?>
+                    <?php echo JText::_('Category'); ?>
                 </th>
 
             </tr>
@@ -73,7 +73,7 @@ JHtml::_('formbehavior.chosen', 'select');
                     <a href="<?php echo $link; ?>"><?php echo $row->name; ?></a>
                 </td>
                 <td style="vertical-align: middle">
-                    <a href="<?php echo $link; ?>"><?php echo $row->group_name; ?></a>
+                    <a href="<?php echo $link; ?>"><?php echo $row->cause_category; ?></a>
                 </td>
 
             </tr>
