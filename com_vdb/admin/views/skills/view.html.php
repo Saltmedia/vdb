@@ -19,7 +19,7 @@ jimport('joomla.application.component.view');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class vdbViewcause_categories extends JViewLegacy
+class vdbViewskills extends JViewLegacy
 {
 
     /**
@@ -28,13 +28,20 @@ class vdbViewcause_categories extends JViewLegacy
      * */
     function display($tpl = null)
     {
-		vdbHelper::addSubMenu('Cause Categories');
+		vdbHelper::addSubMenu('Skills');
         global $mainframe, $app, $option;
-        JToolBarHelper::title(JText::_('Cause Category Manager'), 'generic.png');
+        JToolBarHelper::title(JText::_('Skill Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
 
+ //       JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
+//		JSubMenuHelper::addEntry(JText::_('Skills'), 'index.php?option=com_vdb&controller=skills', true);
+//        JSubMenuHelper::addEntry(JText::_('Skill Categories'), 'index.php?option=com_vdb&controller=skill_categories');
+//        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
+ //       JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
+
+ 
         //To put order NIRAJ
         $filter_state_cat = $app->getUserStateFromRequest($option . 'filter_state_cat', 'filter_state_cat', '', 'word');
         $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'id', 'cmd');
@@ -49,14 +56,16 @@ class vdbViewcause_categories extends JViewLegacy
         $lists_cat['search_cat'] = $search_cat;
 
         // Get data from the model
+		        $this->category = $this->get('category');
         $items = & $this->get('Data');
-        $this->pagination = $this->get('Pagination');
+        $pagination =& $this->get('Pagination');
         $total = & $this->get('Total');
 
 
         //To ordering NIRAJ
         $this->assignRef('lists_cat', $lists_cat);
         $this->assignRef('items', $items);
+		$this->assignRef('pagination', $pagination);
 
         parent::display($tpl);
     }

@@ -28,7 +28,7 @@ class vdbViewcauses extends JViewLegacy
      * */
     function display($tpl = null)
     {
-		vdbHelper::addSubMenu();
+		vdbHelper::addSubMenu('Causes');
         global $mainframe, $app, $option;
         JToolBarHelper::title(JText::_('Cause Manager'), 'generic.png');
         JToolBarHelper::deleteList();

@@ -49,9 +49,14 @@
         <menu>COM_VDB</menu>
         <submenu>
             <menu img="components/com_vdb/images/configuration.png" link="option=com_vdb&amp;controller=configuration">COM_VDB_CONFIG</menu>
-            <menu img="components/com_vdb/images/categories.png" link="option=com_vdb&amp;controller=categories">COM_VDB_CAT</menu>
-            <menu img="components/com_vdb/images/vdb.png" link="option=com_vdb">COM_VDB</menu>
-            <menu img="components/com_vdb/images/vdb.png" link="option=com_vdb&amp;view=about_vdb">COM_VDB_ABOUT</menu>
+			<menu img="components/com_vdb/images/vdb.png" link="option=com_vdb">COM_VDB_OPPORTUNITIES</menu>
+			<menu img="components/com_vdb/images/causes.png" link="option=com_vdb&amp;controller=causes">COM_VDB_CAUSES</menu>
+            <menu img="components/com_vdb/images/cause_categories.png" link="option=com_vdb&amp;controller=cause_categories">COM_VDB_CAUSE_CATEGORIES</menu>
+						<menu img="components/com_vdb/images/skills.png" link="option=com_vdb&amp;controller=skills">COM_VDB_SKILLS</menu>
+            <menu img="components/com_vdb/images/skill_categories.png" link="option=com_vdb&amp;controller=skill_categories">COM_VDB_SKILL_CATEGORIES</menu>
+			
+            <menu img="components/com_vdb/images/locations.png" link="option=com_vdb&amp;controller=locations">COM_VDB_LOCATIONS</menu>
+			<menu img="components/com_vdb/images/vdb.png" link="option=com_vdb&amp;view=about_vdb">COM_VDB_ABOUT</menu>
 
         </submenu>
 

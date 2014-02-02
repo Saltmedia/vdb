@@ -19,7 +19,7 @@ jimport('joomla.application.component.view');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class vdbViewcause_categories extends JViewLegacy
+class vdbViewlocations extends JViewLegacy
 {
 
     /**
@@ -28,9 +28,9 @@ class vdbViewcause_categories extends JViewLegacy
      * */
     function display($tpl = null)
     {
-		vdbHelper::addSubMenu('Cause Categories');
+		vdbHelper::addSubMenu('Locations');
         global $mainframe, $app, $option;
-        JToolBarHelper::title(JText::_('Cause Category Manager'), 'generic.png');
+        JToolBarHelper::title(JText::_('Location Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
