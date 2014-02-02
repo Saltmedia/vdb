@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 
-class vdbControllercause_category extends JControllerLegacy
+class vdbControllercause extends JControllerLegacy
 {
 
     /**
@@ -28,7 +28,7 @@ class vdbControllercause_category extends JControllerLegacy
 
     function search()
     {
-        JRequest::setVar('view', 'cause_categories');
+        JRequest::setVar('view', 'causes');
         JRequest::setVar('layout', 'default');
         parent::display();
     }
@@ -36,7 +36,7 @@ class vdbControllercause_category extends JControllerLegacy
     function edit()
     {
 
-        JRequest::setVar('view', 'cause_category');
+        JRequest::setVar('view', 'cause');
         JRequest::setVar('layout', 'form');
         JRequest::setVar('hidemainmenu', 1);
 
@@ -45,19 +45,19 @@ class vdbControllercause_category extends JControllerLegacy
 
     function save()
     {
-        $model = $this->getModel('cause_category');
+        $model = $this->getModel('cause');
 
         if($model->store())
         {
-            $msg = JText::_('Cause Category Saved!');
+            $msg = JText::_('Cause Saved!');
         }
         else
         {
-            $msg = JText::_('Error Saving Cause Category');
+            $msg = JText::_('Error Saving Cause');
         }
 
         // Check the table in so it can be edited.... we are done with it anyway
-        $link = 'index.php?option=com_vdb&controller=cause_categories';
+        $link = 'index.php?option=com_vdb&controller=causes';
         $this->setRedirect($link, $msg);
     }
 
@@ -67,22 +67,22 @@ class vdbControllercause_category extends JControllerLegacy
      */
     function remove()
     {
-        $model = $this->getModel('cause_category');
+        $model = $this->getModel('cause');
         if(!$model->delete())
         {
-            $msg = JText::_('Error: One or More Category Could not be Deleted');
+            $msg = JText::_('Error: One or More Cause Could not be Deleted');
         }
         else
         {
-            $msg = JText::_('Category(s) Deleted');
+            $msg = JText::_('Cause(s) Deleted');
         }
 
-        $this->setRedirect('index.php?option=com_vdb&controller=cause_categories', $msg);
+        $this->setRedirect('index.php?option=com_vdb&controller=causes', $msg);
     }
 
 	function cancel()
     {
-        $this->setRedirect('index.php?option=com_vdb&controller=cause_categories');
+        $this->setRedirect('index.php?option=com_vdb&controller=causes');
     }
 
 }

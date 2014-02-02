@@ -19,7 +19,7 @@ jimport('joomla.application.component.view');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class vdbViewvdb extends JViewLegacy
+class vdbViewcauses extends JViewLegacy
 {
 
     /**
@@ -29,45 +29,39 @@ class vdbViewvdb extends JViewLegacy
     function display($tpl = null)
     {
         global $mainframe, $app, $option;
-
-        JToolBarHelper::title(JText::_('Volunteer Opportunities'), 'generic.png');
-        JToolBarHelper::publishList();
-        JToolBarHelper::unpublishList();
+        JToolBarHelper::title(JText::_('Cause Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
 
         JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
-        JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes');
+		JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes', true);
         JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories');
-        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb', true);
+        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
         JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
 
-        $filter_state = $app->getUserStateFromRequest($option . 'filter_state', 'filter_state', '', 'word');
-        $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'a.ordering', 'cmd');
-        $filter_order_Dir = $app->getUserStateFromRequest($option . 'filter_order_Dir', 'filter_order_Dir', '', 'word');
-
-        $search = $app->getUserStateFromRequest($option . 'search', 'search', '', 'word');
+        //To put order NIRAJ
+        $filter_state_cat = $app->getUserStateFromRequest($option . 'filter_state_cat', 'filter_state_cat', '', 'word');
+        $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'id', 'cmd');
+        $filter_order_Dir_cat = $app->getUserStateFromRequest($option . 'filter_order_Dir_cat', 'filter_order_Dir_cat', '', 'word');
+        $search_cat = $app->getUserStateFromRequest($option . 'search_cat', 'search_cat', '', 'word');
 
         $javascript = 'onchange="document.adminForm.submit();"';
 
-        $lists['state'] = JHTML::_('grid.state', $filter_state);
-        // table ordering
-        $lists['order_Dir'] = $filter_order_Dir;
-        $lists['order'] = $filter_order;
-        $lists['search'] = $search;
+        $lists_cat['state_cat'] = JHTML::_('grid.state', $filter_state_cat);
+        $lists_cat['order_Dir_cat'] = $filter_order_Dir_cat;
+        $lists_cat['order_cat'] = $filter_order_cat;
+        $lists_cat['search_cat'] = $search_cat;
 
-        $this->cause_category = $this->get('cause_category');
         // Get data from the model
         $items = & $this->get('Data');
+        $this->pagination = $this->get('Pagination');
         $total = & $this->get('Total');
 
 
-
-        //$lists['state']	= JHTML::_('grid.state',  $filter_state );
-        $this->assignRef('lists', $lists);
+        //To ordering NIRAJ
+        $this->assignRef('lists_cat', $lists_cat);
         $this->assignRef('items', $items);
-        $this->pagination = $this->get('Pagination');
 
         parent::display($tpl);
     }
