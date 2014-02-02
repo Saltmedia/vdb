@@ -32,7 +32,7 @@ class VDBModelcauses extends JModelLegacy
         $where = $this->_buildContentWhere();
         //To put order NIRAJ
 
-        $query = ' SELECT a.id, a.name, b.name as cause_category FROM #__vdb_causes as a INNER JOIN #__vdb_cause_categories as b ON a.causecatid=b.id '
+        $query = ' SELECT a.id, a.name, b.name as cause_category FROM #__vdb_causes as a LEFT JOIN #__vdb_cause_categories as b ON a.causecatid=b.id '
                 . $where
                 . $orderby
         ;
@@ -45,16 +45,20 @@ class VDBModelcauses extends JModelLegacy
 
         global $mainframe, $app, $option, $app;
         $db = & JFactory::getDBO();
+		       $filter_catid = $app->getUserStateFromRequest($option . 'filter_category_id', 'filter_category_id', 0, 'int');
+
          $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'name', 'cmd');
         $filter_order_Dir_cat = $app->getUserStateFromRequest($option . 'filter_order_Dir_cat', 'filter_order_Dir_cat', '', 'word');
         $search_cat = $app->getUserStateFromRequest($option . 'search_cat', 'search_cat', '', 'string');
         $search_cat = JString::strtolower($search_cat);
 
         $where = array();
-
-        /* if ($filter_catid > 0) {
-          $where[] = 'a.catid = '.(int) $filter_catid;
-          } */
+		
+      if($filter_catid > 0)
+        {
+            $where[] = 'b.id = ' . (int) $filter_catid;
+        }
+ 
         if($search_cat)
         {
             $where[] = 'LOWER(a.name) LIKE ' . $db->Quote('%' . $search_cat . '%', false);
@@ -84,6 +88,16 @@ class VDBModelcauses extends JModelLegacy
      * Retrieves the hello data
      * @return array Array of objects containing the data from the database
      */
+	 
+	     function getcategory()
+    {
+        $db = JFactory::getDbo();
+        $query = 'SELECT * FROM #__vdb_cause_categories order by name';
+        $max = $this->_getList($query);
+
+        return $max;
+    }
+	 
     function getData()
     {
         // Lets load the data if it doesn't already exist

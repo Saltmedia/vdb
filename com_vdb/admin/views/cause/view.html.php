@@ -4,7 +4,7 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.view');
 
-class vdbViewcause_category extends JViewLegacy
+class vdbViewcause extends JViewLegacy
 {
 
     /**
@@ -15,13 +15,13 @@ class vdbViewcause_category extends JViewLegacy
     {
 
 
-        $cause_category = & $this->get('Data');
+        $cause = & $this->get('Data');
 
         $operation = "";
-        $cause_category->id == "" ? $operation = 'Add' : $operation = 'Edit';
+        $cause->id == "" ? $operation = 'Add' : $operation = 'Edit';
 
         $text = $operation;
-        JToolBarHelper::title(JText::_('Cause Category') . ': <small><small>[ ' . $text . ' ]</small></small>');
+        JToolBarHelper::title(JText::_('Cause') . ': <small><small>[ ' . $text . ' ]</small></small>');
         JToolBarHelper::save();
 
 
@@ -35,7 +35,8 @@ class vdbViewcause_category extends JViewLegacy
             JToolBarHelper::cancel('cancel','Close');
         }
 
-        $this->assignRef('cause_category', $cause_category);
+        $this->assignRef('cause', $cause);
+		$this->categorylist = $this->get('categorylist');
 
         parent::display($tpl);
     }

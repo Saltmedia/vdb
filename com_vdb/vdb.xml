@@ -68,6 +68,7 @@
             <filename>sql/install.sql</filename>
             <filename>sql/uninstall.sql</filename>
             <folder>language</folder>
+			<folder>helpers</folder>
         </files>
         <languages folder="admin">
             <language tag="en-GB">language/en-GB/en-GB.com_vdb.ini</language>

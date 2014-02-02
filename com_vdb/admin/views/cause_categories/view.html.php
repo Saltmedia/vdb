@@ -34,12 +34,6 @@ class vdbViewcause_categories extends JViewLegacy
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
 
-        JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
-		JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes');
-        JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories', true);
-        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
-        JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
-
         //To put order NIRAJ
         $filter_state_cat = $app->getUserStateFromRequest($option . 'filter_state_cat', 'filter_state_cat', '', 'word');
         $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'id', 'cmd');

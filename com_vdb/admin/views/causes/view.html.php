@@ -28,18 +28,20 @@ class vdbViewcauses extends JViewLegacy
      * */
     function display($tpl = null)
     {
+		vdbHelper::addSubMenu();
         global $mainframe, $app, $option;
         JToolBarHelper::title(JText::_('Cause Manager'), 'generic.png');
         JToolBarHelper::deleteList();
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
 
-        JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
-		JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes', true);
-        JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories');
-        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
-        JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
+ //       JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
+//		JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes', true);
+//        JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories');
+//        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb');
+ //       JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
 
+ 
         //To put order NIRAJ
         $filter_state_cat = $app->getUserStateFromRequest($option . 'filter_state_cat', 'filter_state_cat', '', 'word');
         $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'id', 'cmd');
@@ -54,6 +56,7 @@ class vdbViewcauses extends JViewLegacy
         $lists_cat['search_cat'] = $search_cat;
 
         // Get data from the model
+		        $this->category = $this->get('category');
         $items = & $this->get('Data');
         $this->pagination = $this->get('Pagination');
         $total = & $this->get('Total');

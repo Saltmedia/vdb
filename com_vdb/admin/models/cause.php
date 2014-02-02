@@ -132,6 +132,13 @@ class vdbModelcause extends JModelLegacy
         return true;
     }
 
+	     function getcategorylist()
+    {
+        $db = JFactory::getDbo();
+        $query = 'SELECT * FROM #__vdb_cause_categories order by name';
+        $max = $this->_getList($query);
 
+        return $max;
+    }
 }
 

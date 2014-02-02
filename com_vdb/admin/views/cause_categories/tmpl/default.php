@@ -38,9 +38,7 @@ JHtml::_('formbehavior.chosen', 'select');
                 <th width="1%" class="hidden-phone">
                     <input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
                 </th>
-                <th width="5">
-                    <?php echo JText::_('ID'); ?>
-                </th>
+
 
                 <th>
                     <?php echo JText::_('Category Name'); ?>
@@ -64,9 +62,6 @@ JHtml::_('formbehavior.chosen', 'select');
             <tr class="<?php echo "row$k"; ?>">
                 <td style="vertical-align: middle">
                     <?php echo $checked; ?>
-                </td>
-                <td style="vertical-align: middle">
-                    <?php echo $row->id; ?>
                 </td>
 
                 <td style="vertical-align: middle">

@@ -9,7 +9,7 @@
 
         // do field validation
         if (form.name.value == "") {
-            alert("<?php echo JText::_('Category must have a name', true); ?>");
+            alert("<?php echo JText::_('Cause must have a name', true); ?>");
         } else {
             submitform(pressbutton);
         }
@@ -23,33 +23,35 @@
                 <tr>
                     <td width="100" align="right" class="key">
                         <label for="greeting">
-                            <?php echo JText::_('Category name'); ?>:
+                            <?php echo JText::_('Cause name'); ?>:
                         </label>
                     </td>
                     <td>
-                        <input class="text_area" type="text" name="name" id="name" size="53" maxlength="250" value="<?php echo $this->cause_category->name; ?>" />
+                        <input class="text_area" type="text" name="name" id="name" size="53" maxlength="250" value="<?php echo $this->cause->name; ?>" />
                     </td>
                 </tr>
 
                 <tr>
                     <td width="100" align="right" class="key">
                         <label for="greeting">
-                            <?php echo JText::_('Image'); ?>:
+                            <?php echo JText::_('Category'); ?>:
                         </label>
                     </td>
                     <td>
-                        <input class="text_area" type="file" name="image" id="image"  value="<?php echo $this->cause_category->image; ?>" />
-                    </td>
-                </tr>
-
-                <tr>
-                    <td width="100" align="right" class="key">
-                        <label for="greeting">
-                            &nbsp;
-                        </label>
-                    </td>
-                    <td>
-                        <img src="<?php echo JURI::root() . 'components/com_vdb/images/cause_category_images/' . $this->cause_category->image; ?>" width="135" height="120"/>
+                                  
+            <select name="causecatid" class="inputbox">
+                <option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+                <?php
+                foreach($this->categorylist as $catlist)
+                {
+                    ?>
+                    <option value="<?php echo $catlist->id; ?>" <?php
+                    if($this->cause->causecatid == $catlist->id)
+                    {
+                        ?> selected="selected" <?php } ?>> <?php echo $catlist->name; ?></option>
+                        <?php } ?>
+            </select>
+			
                     </td>
                 </tr>
 
@@ -60,7 +62,7 @@
     <div class="clr"></div>
 
     <input type="hidden" name="option" value="com_vdb" />
-    <input type="hidden" name="id" value="<?php echo $this->cause_category->id; ?>" />
+    <input type="hidden" name="id" value="<?php echo $this->cause->id; ?>" />
     <input type="hidden" name="task" value="" />
-    <input type="hidden" name="controller" value="cause_category" />
+    <input type="hidden" name="controller" value="cause" />
 </form>

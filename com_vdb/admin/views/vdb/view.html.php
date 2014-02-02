@@ -37,12 +37,6 @@ class vdbViewvdb extends JViewLegacy
         JToolBarHelper::editList();
         JToolBarHelper::addNew();
 
-        JSubMenuHelper::addEntry(JText::_('Configuration'), 'index.php?option=com_vdb&controller=configuration');
-        JSubMenuHelper::addEntry(JText::_('Causes'), 'index.php?option=com_vdb&controller=causes');
-        JSubMenuHelper::addEntry(JText::_('Cause Categories'), 'index.php?option=com_vdb&controller=cause_categories');
-        JSubMenuHelper::addEntry(JText::_('Opportunities'), 'index.php?option=com_vdb', true);
-        JSubMenuHelper::addEntry(JText::_('About VDB'), 'index.php?option=com_vdb&view=about_vdb');
-
         $filter_state = $app->getUserStateFromRequest($option . 'filter_state', 'filter_state', '', 'word');
         $filter_order = $app->getUserStateFromRequest($option . 'filter_order', 'filter_order', 'a.ordering', 'cmd');
         $filter_order_Dir = $app->getUserStateFromRequest($option . 'filter_order_Dir', 'filter_order_Dir', '', 'word');

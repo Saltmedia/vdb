@@ -9,6 +9,9 @@
 // No direct access
 defined('_JEXEC') or die('Restricted access');
 
+
+JLoader::register('vdbHelper', dirname(__FILE__) . DS . 'helpers' . DS . 'vdb.php');
+
 if(!defined('DS'))
 {
     define('DS', DIRECTORY_SEPARATOR);

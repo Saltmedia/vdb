@@ -30,6 +30,29 @@ JHtml::_('formbehavior.chosen', 'select');
                     this.form.submit();"><i class="icon-remove"></i></button>
         </div>
     </div>
+	
+	        <div class="btn-group pull-right">
+            <?php
+            global $option;
+            $app = JFactory::getApplication('administrator');
+            $filter_catid = $app->getUserStateFromRequest($option . 'filter_category_id', 'filter_category_id', 0, 'int');
+            ?>
+            <select name="filter_category_id" class="inputbox" onchange="this.form.submit()">
+                <option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+                <?php
+                foreach($this->category as $cat)
+                {
+                    ?>
+                    <option value="<?php echo $cat->id; ?>" <?php
+                    if($filter_catid == $cat->id)
+                    {
+                        ?> selected="selected" <?php } ?>> <?php echo $cat->name; ?></option>
+                        <?php } ?>
+            </select>
+
+        </div>
+		
+		
     <div class="clearfix"> </div>
 
     <table class="table table-striped" id="articleList">
@@ -38,9 +61,7 @@ JHtml::_('formbehavior.chosen', 'select');
                 <th width="1%" class="hidden-phone">
                     <input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
                 </th>
-                <th width="5">
-                    <?php echo JText::_('ID'); ?>
-                </th>
+
 
                 <th>
                     <?php echo JText::_('Name'); ?>
@@ -65,9 +86,7 @@ JHtml::_('formbehavior.chosen', 'select');
                 <td style="vertical-align: middle">
                     <?php echo $checked; ?>
                 </td>
-                <td style="vertical-align: middle">
-                    <?php echo $row->id; ?>
-                </td>
+
 
                 <td style="vertical-align: middle">
                     <a href="<?php echo $link; ?>"><?php echo $row->name; ?></a>

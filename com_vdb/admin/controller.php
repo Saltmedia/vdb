@@ -16,6 +16,7 @@ class VDBController extends JControllerLegacy
     function display()
     {
         parent::display();
+		vdbHelper::addSubmenu();
     }
 
     function __construct()
