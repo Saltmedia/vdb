@@ -50,7 +50,7 @@ class VDBModelorganizations extends JModelList
         $where = $this->_buildContentWhere();
         //To put order NIRAJ
 
-        $query = ' SELECT a.id, a.name, b.name as organization_category FROM #__vdb_organizations as a LEFT JOIN #__vdb_organization_categories as b ON a.organizationcatid=b.id '
+        $query = ' SELECT a.id, a.name, a.skillids, c.name as location, b.name as cause, a.published FROM #__vdb_organizations as a LEFT JOIN #__vdb_causes as b ON a.causeid=b.id LEFT JOIN #__vdb_locations as c ON a.locationid = c.id '
                 . $where
                 . $orderby
         ;
@@ -63,25 +63,39 @@ class VDBModelorganizations extends JModelList
 
         global $mainframe, $app, $option, $app;
         $db = & JFactory::getDBO();
-		       $filter_catid = $app->getUserStateFromRequest($option . 'filter_category_id', 'filter_category_id', 0, 'int');
-
-         $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'name', 'cmd');
+		       $filter_causeid = $app->getUserStateFromRequest($option . 'filter_cause_id', 'filter_cause_id', 0, 'int');
+			   $filter_locationid = $app->getUserStateFromRequest($option . 'filter_location_id', 'filter_location_id', 0, 'int');
+        $filter_state = $app->getUserStateFromRequest($option . 'filter_state', 'filter_state', '', 'word');
+        $filter_order_cat = $app->getUserStateFromRequest($option . 'filter_order_cat', 'filter_order_cat', 'name', 'cmd');
         $filter_order_Dir_cat = $app->getUserStateFromRequest($option . 'filter_order_Dir_cat', 'filter_order_Dir_cat', '', 'word');
         $search_cat = $app->getUserStateFromRequest($option . 'search_cat', 'search_cat', '', 'string');
         $search_cat = JString::strtolower($search_cat);
 
         $where = array();
 		
-      if($filter_catid > 0)
+      if($filter_causeid > 0)
         {
-            $where[] = 'b.id = ' . (int) $filter_catid;
+            $where[] = 'b.id = ' . (int) $filter_causeid;
         }
- 
+       if($filter_locationid > 0)
+        {
+            $where[] = 'c.id = ' . (int) $filter_locationid;
+        }
         if($search_cat)
         {
             $where[] = 'LOWER(a.name) LIKE ' . $db->Quote('%' . $search_cat . '%', false);
         }
-
+        if($filter_state)
+        {
+            if($filter_state == 'P')
+            {
+                $where[] = 'a.published = 1';
+            }
+            else if($filter_state == 'U')
+            {
+                $where[] = 'a.published = 0';
+            }
+        }
 
         $where = ( count($where) ? ' WHERE ' . implode(' AND ', $where) : '' );
 
@@ -107,10 +121,10 @@ class VDBModelorganizations extends JModelList
      * @return array Array of objects containing the data from the database
      */
 	 
-	     function getcategory()
+	     function getlocation()
     {
         $db = JFactory::getDbo();
-        $query = 'SELECT * FROM #__vdb_organization_categories order by name';
+        $query = 'SELECT * FROM #__vdb_locations order by id';
         $max = $this->_getList($query);
 
         return $max;
@@ -152,5 +166,19 @@ class VDBModelorganizations extends JModelList
         return $this->_pagination;
     }
 
+	    /**
+     * Retrieves the hello data
+     * @return array Array of objects containing the data from the database
+     */
+	 
+	     function getcause()
+    {
+        $db = JFactory::getDbo();
+        $query = 'SELECT * FROM #__vdb_causes order by name';
+        $max = $this->_getList($query);
+
+        return $max;
+    }
+	
 }
 

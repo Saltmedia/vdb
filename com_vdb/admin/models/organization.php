@@ -132,13 +132,53 @@ class vdbModelorganization extends JModelLegacy
         return true;
     }
 
-	     function getcategorylist()
+	     function getcause()
     {
         $db = JFactory::getDbo();
-        $query = 'SELECT * FROM #__vdb_organization_categories order by name';
+        $query = 'SELECT * FROM #__vdb_causes order by name';
         $max = $this->_getList($query);
 
         return $max;
     }
+
+	     function getlocation()
+    {
+        $db = JFactory::getDbo();
+        $query = 'SELECT * FROM #__vdb_locations order by name';
+        $max = $this->_getList($query);
+
+        return $max;
+    }	
+	    /**
+     * unpublish one record from link
+     * @return void
+     */
+    function publish($cid = array(),$publish = 1)
+    {
+        $user = & JFactory::getUser();
+
+        if(count($cid))
+        {
+            JArrayHelper::toInteger($cid);
+            $cids = implode(',',$cid);
+
+            echo $query = 'UPDATE #__vdb_organizations'
+            . ' SET published = ' . (int) $publish
+            . ' WHERE id IN ( ' . $cids . ' )';
+
+
+
+            $this->_db->setQuery($query);
+            if(!$this->_db->query())
+            {
+                $this->setError($this->_db->getErrorMsg());
+                return false;
+            }
+        }
+
+        return true;
+    }
+	
+	
 }
 

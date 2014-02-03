@@ -36,9 +36,7 @@ class Tableorganization extends JTable
 	var $phone = null;
 	var $email = null;
 	var $image = null;
-	var $contact = null;
 	var $published = null;
-var $skillids = null;
   
   
   

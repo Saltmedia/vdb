@@ -108,7 +108,7 @@ class vdbControllerorganization extends JControllerLegacy
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_vdb');
+        $this->setRedirect('index.php?option=com_vdb&controller=organizations');
     }
 
     function unpublish()
@@ -130,7 +130,7 @@ class vdbControllerorganization extends JControllerLegacy
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_vdb');
+        $this->setRedirect('index.php?option=com_vdb&controller=organizations');
     }
 	
 	

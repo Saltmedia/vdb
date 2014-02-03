@@ -127,10 +127,9 @@ INSERT INTO `#__vdb_locations` (`id`, `name`, `ordering`) VALUES
 --
 
 DROP TABLE IF EXISTS `#__vdb_organizations`;
-CREATE TABLE IF NOT EXISTS `#__vdb_organization` (
+CREATE TABLE IF NOT EXISTS `#__vdb_organizations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `causeid` int(10) NOT NULL,
-  `skillids` varchar(100) NOT NULL,
   `locationid` int(10) NOT NULL,
   `name` varchar(300) NOT NULL,
   `address` varchar(100) NOT NULL,
