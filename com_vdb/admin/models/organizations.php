@@ -50,7 +50,7 @@ class VDBModelorganizations extends JModelList
         $where = $this->_buildContentWhere();
         //To put order NIRAJ
 
-        $query = ' SELECT a.id, a.name, a.skillids, c.name as location, b.name as cause, a.published FROM #__vdb_organizations as a LEFT JOIN #__vdb_causes as b ON a.causeid=b.id LEFT JOIN #__vdb_locations as c ON a.locationid = c.id '
+        $query = ' SELECT a.id, a.name, c.name as location, b.name as cause, a.published FROM #__vdb_organizations as a LEFT JOIN #__vdb_causes as b ON a.causeid=b.id LEFT JOIN #__vdb_locations as c ON a.locationid = c.id '
                 . $where
                 . $orderby
         ;

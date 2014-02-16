@@ -85,8 +85,59 @@
                         </label>
                     </td>
                     <td>
-                        <textarea name="desc" id="desc" cols="30" rows="5"><?php echo $this->organization->desc; ?></textarea>
+                        <textarea form="adminForm" name="desc" id="desc" cols="30" rows="5"><?php echo $this->organization->desc; ?></textarea>
                 </tr>
+				                </tr>
+ <tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Address'); ?>:
+                        </label>
+                    </td>
+                    <td>
+						<textarea form="adminForm" name="address" id="address" cols="30" rows="5"><?php echo $this->organization->address; ?></textarea>
+                </tr>
+				                <tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Contact name'); ?>:
+                        </label>
+                    </td>
+                    <td>
+                        <input class="text_area" type="text" name="contact" id="contact" size="53" maxlength="250" value="<?php echo $this->organization->contact; ?>" />
+                    </td>
+                </tr>
+				<tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Phone Number'); ?>:
+                        </label>
+                    </td>
+                    <td>
+                        <input class="text_area" type="text" name="phone" id="phone" size="53" maxlength="250" value="<?php echo $this->organization->phone; ?>" />
+                    </td>
+                </tr>
+				<tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Email Address'); ?>:
+                        </label>
+                    </td>
+                    <td>
+                        <input class="text_area" type="text" name="email" id="email" size="53" maxlength="250" value="<?php echo $this->organization->email; ?>" />
+                    </td>
+                </tr>				
+								<tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Website'); ?>:
+                        </label>
+                    </td>
+                    <td>
+                        <input class="text_area" type="text" name="website" id="website" size="53" maxlength="250" value="<?php echo $this->organization->website; ?>" />
+                    </td>
+                </tr><tr>				
+</tr>
             </table>
         </fieldset>
     </div>

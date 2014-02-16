@@ -31,10 +31,10 @@ class Tableorganization extends JTable
     var $name = null;
 	var $desc = null;
 	var $address = null;
-	var $postalcode = null;
 	var $contact = null;
 	var $phone = null;
 	var $email = null;
+	var $website = null;
 	var $image = null;
 	var $published = null;
   
