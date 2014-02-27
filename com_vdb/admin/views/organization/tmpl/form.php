@@ -136,8 +136,27 @@
                     <td>
                         <input class="text_area" type="text" name="website" id="website" size="53" maxlength="250" value="<?php echo $this->organization->website; ?>" />
                     </td>
-                </tr><tr>				
-</tr>
+                </tr>               <tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            <?php echo JText::_('Image'); ?>:
+                        </label>
+                    </td>
+                    <td>
+                        <input class="text_area" type="file" name="image" id="image"  value="<?php echo $this->organization->image; ?>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td width="100" align="right" class="key">
+                        <label for="greeting">
+                            &nbsp;
+                        </label>
+                    </td>
+                    <td>
+                        <img src="<?php echo JURI::root() . 'components/com_vdb/images/organization_images/' . $this->organization->image; ?>" width="135" height="120"/>
+                    </td>
+                </tr>
             </table>
         </fieldset>
     </div>

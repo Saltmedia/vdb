@@ -85,7 +85,7 @@ class vdbModelskill_category extends JModelLegacy
         if($_FILES['image']['tmp_name'] != "")
         {
             $img_name = time() . '_' . $_FILES['image']['name'];
-            $newimage = JPATH_COMPONENT_SITE . DS . 'images/category_images' . DS . $img_name;
+            $newimage = JPATH_COMPONENT_SITE . DS . 'images/skill_category_images' . DS . $img_name;
             $result = @move_uploaded_file($_FILES['image']['tmp_name'],$newimage);
             $data['image'] = $img_name;
         }

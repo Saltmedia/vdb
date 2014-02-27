@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.application.component.controller');
 
-class VDBController extends JControllerLegacy
+class vdbControlleropportunity extends JControllerLegacy
 {
 
     /**
@@ -16,7 +16,6 @@ class VDBController extends JControllerLegacy
     function display()
     {
         parent::display();
-		vdbHelper::addSubmenu('Opportunities');
     }
 
     function __construct()
@@ -27,9 +26,15 @@ class VDBController extends JControllerLegacy
         $this->registerTask('add', 'edit');
     }
 
+    function search()
+    {
+        JRequest::setVar('view', 'opportunities');
+        JRequest::setVar('layout', 'default');
+        parent::display();
+    }
+
     function edit()
     {
-
 
         JRequest::setVar('view', 'opportunity');
         JRequest::setVar('layout', 'form');
@@ -44,15 +49,15 @@ class VDBController extends JControllerLegacy
 
         if($model->store())
         {
-            $msg = JText::_('Opportunity Saved!');
+            $msg = JText::_('Organization Opportunity Saved!');
         }
         else
         {
-            $msg = JText::_('Error Saving Opportunity');
+            $msg = JText::_('Error Saving Organization Opportunity');
         }
 
         // Check the table in so it can be edited.... we are done with it anyway
-        $link = 'index.php?option=com_vdb';
+        $link = 'index.php?option=com_vdb&controller=opportunities';
         $this->setRedirect($link, $msg);
     }
 
@@ -65,17 +70,22 @@ class VDBController extends JControllerLegacy
         $model = $this->getModel('opportunity');
         if(!$model->delete())
         {
-            $msg = JText::_('Error: One or More Opportunities Could not be Deleted');
+            $msg = JText::_('Error: One or More Organization Could not be Deleted');
         }
         else
         {
-            $msg = JText::_('Opportunity(s) Deleted');
+            $msg = JText::_('Organization(s) Deleted');
         }
 
-        $this->setRedirect('index.php?option=com_vdb', $msg);
+        $this->setRedirect('index.php?option=com_vdb&controller=opportunities', $msg);
     }
 
-    /**
+	function cancel()
+    {
+        $this->setRedirect('index.php?option=com_vdb&controller=opportunities');
+    }
+
+	    /**
      * unpublish one record from link
      * @return void
      */
@@ -98,7 +108,7 @@ class VDBController extends JControllerLegacy
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_vdb');
+        $this->setRedirect('index.php?option=com_vdb&controller=opportunities');
     }
 
     function unpublish()
@@ -120,11 +130,10 @@ class VDBController extends JControllerLegacy
             echo "<script> alert('" . $model->getError(true) . "'); window.history.go(-1); </script>\n";
         }
 
-        $this->setRedirect('index.php?option=com_vdb');
+        $this->setRedirect('index.php?option=com_vdb&controller=opportunities');
     }
-
-
-
+	
+	
 }
 
 ?>

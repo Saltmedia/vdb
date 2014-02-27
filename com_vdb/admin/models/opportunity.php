@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @package    Joomla.Tutorials
  * @subpackage Components
  */
-class vdbModelorganization extends JModelLegacy
+class vdbModelopportunity extends JModelLegacy
 {
 
     /**
@@ -60,7 +60,7 @@ class vdbModelorganization extends JModelLegacy
         // Load the data
         if(empty($this->_data))
         {
-            $query = ' SELECT * FROM #__vdb_organizations ' .
+            $query = ' SELECT * FROM #__vdb_opportunities ' .
                     '  WHERE id = ' . $this->_id;
             $this->_db->setQuery($query);
             $this->_data = $this->_db->loadObject();
@@ -168,7 +168,7 @@ class vdbModelorganization extends JModelLegacy
             JArrayHelper::toInteger($cid);
             $cids = implode(',',$cid);
 
-            echo $query = 'UPDATE #__vdb_organizations'
+            echo $query = 'UPDATE #__vdb_opportunities'
             . ' SET published = ' . (int) $publish
             . ' WHERE id IN ( ' . $cids . ' )';
 
